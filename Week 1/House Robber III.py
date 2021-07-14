@@ -1,9 +1,9 @@
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solution:
     def rob(self, root: TreeNode) -> int:
         robbed_dict = {}
@@ -17,7 +17,7 @@ class Solution:
         
         if parent_robbed:
             if node in not_robbed_dict:
-                return not_rob[node]
+                return not_robbed_dict[node]
             
             not_robbed_dict[node] = self.rob_house(node.left,robbed_dict,not_robbed_dict,False) +                                                       self.rob_house(node.right,robbed_dict,not_robbed_dict,False)
             
